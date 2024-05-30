@@ -411,7 +411,7 @@ function fullLike (array, fillValue, dtype) {
  * @return {NdArray} Array of random numbers shaped like the array argument
  */
 function randomLike (array) {
-	return random(array.shape);
+  return random(array.shape);
 }
 
 /**
