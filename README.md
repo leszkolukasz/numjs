@@ -94,6 +94,28 @@ array([[ 1, 2],
        [ 1, 2]])
 ```
 
+You can also infer the shape from another array with methods like `zerosLike`, `onesLike`, and `fullLike`
+
+Given `const arr = nj.array([[1,2], [3,4]]);` which has shape of (2,2)
+
+```js
+> nj.zerosLike(arr);
+array([[ 0, 0],
+       [ 0, 0]])
+
+> nj.onesLike(arr, 'int32')     // dtype can also be specified
+array([[ 1, 1],
+       [ 1, 1]], dtype=int32)
+
+> nj.randomLike(arr)
+array([[ 0.82251, 0.76331],
+       [ 0.22786, 0.73417]])
+
+> nj.full(arr, -3.14159)
+array([[ -3.14159, -3.14159],
+       [ -3.14159, -3.14159]])
+```
+
 To create sequences of numbers, __NumJs__ provides a function called `arange`:
 
 ```js
