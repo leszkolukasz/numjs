@@ -62,12 +62,13 @@ array([ 1, 2, 3], dtype=uint8)
 
 __Note__: possible types are int8, uint8, int16, uint16, int32, uint32, float32, float64 and array (the default)
 
-To create arrays with a given shape, you can use `zeros`, `ones` or `random` functions:
+To create arrays with a given shape, you can use `zeros`, `ones`, `random`, and `full` functions:
 
 ```js
 > nj.zeros([2,3]);
 array([[ 0, 0, 0],
        [ 0, 0, 0]])
+
 > nj.ones([2,3,4], 'int32')     // dtype can also be specified
 array([[[ 1, 1, 1, 1],
         [ 1, 1, 1, 1],
@@ -81,6 +82,16 @@ array([[ 0.9182 , 0.85176, 0.22587],
        [ 0.50088, 0.74376, 0.84024],
        [ 0.74045, 0.23345, 0.20289],
        [ 0.00612, 0.37732, 0.06932]])
+
+> nj.full([3,3], -3.14159)
+array([[ -3.14159, -3.14159, -3.14159],
+       [ -3.14159, -3.14159, -3.14159],
+       [ -3.14159, -3.14159, -3.14159]])
+
+> nj.full([3, 2], [1, 2])
+array([[ 1, 2],
+       [ 1, 2],
+       [ 1, 2]])
 ```
 
 To create sequences of numbers, __NumJs__ provides a function called `arange`:
