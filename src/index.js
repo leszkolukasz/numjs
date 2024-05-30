@@ -343,7 +343,7 @@ function full (shape, fillValue, dtype) {
       ndarrayMemory[i] = fillValue[i % fillValue.length];
     }
   }
-	return arr;
+  return arr;
 }
 
 /**
