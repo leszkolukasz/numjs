@@ -94,7 +94,7 @@ array([[ 1, 2],
        [ 1, 2]])
 ```
 
-You can also infer the shape from another array with methods like `zerosLike`, `onesLike`, and `fullLike`
+You can also infer the shape from another array with methods like `zerosLike`, `onesLike`, `randomLike`, and `fullLike`
 
 Given `const arr = nj.array([[1,2], [3,4]]);` which has shape of (2,2)
 
@@ -127,6 +127,25 @@ array([ 10, 15, 20, 25])
 
 > nj.arange(1, 5, 'uint8');
 array([ 1, 2, 3, 4], dtype=uint8)
+```
+
+To generate matrices with nice properties like the identity `eye` or a triangular `tri`:
+
+```js
+> nj.eye(3, 3)
+array([[ 1, 0, 0],
+       [ 0, 1, 0], 
+       [ 0, 0, 1]])
+
+> nj.tri(3, 3) // fills diagonal under k=0 
+array([[ 0, 0, 0], 
+       [ 1, 0, 0], 
+       [ 1, 1, 0]])
+
+> nj.tri(3, 3, 1) // fills diagonal under k=1 
+array([[ 1, 0, 0], 
+       [ 1, 1, 0], 
+       [ 1, 1, 1]])
 ```
 
 ### More info about the array
