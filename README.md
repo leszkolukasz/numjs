@@ -94,7 +94,7 @@ array([[ 1, 2],
        [ 1, 2]])
 ```
 
-You can also infer the shape from another array with methods like `zerosLike`, `onesLike`, `randomLike`, and `fullLike`
+You can also infer the shape from another array with methods like `zerosLike`, `onesLike`, `randomLike`, and `fullLike`:
 
 Given `const arr = nj.array([[1,2], [3,4]]);` which has shape of (2,2)
 
