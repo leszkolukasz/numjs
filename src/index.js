@@ -326,7 +326,7 @@ function ones (shape, dtype) {
  *
  * @return {NdArray} Array of ones with the given shape and dtype
  */
-function full(shape, fillValue, dtype) {
+function full (shape, fillValue, dtype) {
 	if (_.isNumber(shape) && shape >= 0) {
 		shape = [shape];
 	}
@@ -379,7 +379,7 @@ function onesLike (array, dtype) {
  *
  * @return {NdArray} Array of fillValue shaped like the array argument
  */
-function fullLike(array, fillValue, dtype) {
+function fullLike (array, fillValue, dtype) {
 	return full(array.shape, fillValue, dtype);
 }
 
