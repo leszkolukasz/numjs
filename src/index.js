@@ -196,6 +196,26 @@ function max (x) {
 }
 
 /**
+ * Return the index of the minimum value of the array
+ *
+ * @param {(Array|NdArray|number)} x
+ * @returns {Number}
+ */
+function argmin (x) {
+  return NdArray.new(x).argmin();
+}
+
+/**
+ * Return the index of the maximum value of the array
+ *
+ * @param {(Array|NdArray|number)} x
+ * @returns {Number}
+ */
+function argmax (x) {
+  return NdArray.new(x).argmax();
+}
+
+/**
  * Return element-wise remainder of division.
  * Computes the remainder complementary to the `floor` function. It is equivalent to the Javascript modulus operator``x1 % x2`` and has the same sign as the divisor x2.
  *
@@ -983,6 +1003,8 @@ module.exports = {
   equal: equal,
   max: max,
   min: min,
+  argmax: argmax,
+  argmin: argmin,
   mod: mod,
   remainder: mod,
   concatenate: concatenate,

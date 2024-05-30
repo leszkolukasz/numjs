@@ -556,6 +556,30 @@ NdArray.prototype.min = function () {
 };
 
 /**
+* Return the index of the maximum value of the array
+*
+* @returns {Array<number>}
+*/
+NdArray.prototype.argmax = function () {
+  if (this.selection.size === 0) {
+    return null;
+  }
+  return ops.argmax(this.selection);
+};
+
+/**
+* Return the index of the minimum value of the array
+*
+* @returns {Array<number>}
+*/
+NdArray.prototype.argmin = function () {
+  if (this.selection.size === 0) {
+    return null;
+  }
+  return ops.argmin(this.selection);
+};
+
+/**
 * Sum of array elements.
 *
 * @returns {number}
