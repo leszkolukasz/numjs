@@ -5,7 +5,7 @@ var expect = require("expect.js");
 
 var nj = require("../../src");
 
-describe("zerosLike", function () {
+describe("randomLike", function () {
 	const A = nj.array([
 		[1, 2],
 		[3, 4],
