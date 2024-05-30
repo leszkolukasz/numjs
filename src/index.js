@@ -327,17 +327,17 @@ function ones (shape, dtype) {
  * @return {NdArray} Array of ones with the given shape and dtype
  */
 function full (shape, fillValue, dtype) {
-	if (_.isNumber(shape) && shape >= 0) {
-		shape = [shape];
-	}
-	var s = _.shapeSize(shape);
-	var T = _.getType(dtype);
+  if (_.isNumber(shape) && shape >= 0) {
+    shape = [shape];
+  }
+  var s = _.shapeSize(shape);
+  var T = _.getType(dtype);
   var ndarrayMemory = new T(s);
-	var arr = new NdArray(ndarrayMemory, shape);
+  var arr = new NdArray(ndarrayMemory, shape);
 
   if(_.isNumber(fillValue)) {
     ndarrayMemory.fill(fillValue);
-  } else {
+    } else {
     // if array provided, fill out the array by repeating the fillValue
     for(var i = 0; i < ndarrayMemory.length; i++) {
       ndarrayMemory[i] = fillValue[i % fillValue.length];
@@ -380,7 +380,7 @@ function onesLike (array, dtype) {
  * @return {NdArray} Array of fillValue shaped like the array argument
  */
 function fullLike (array, fillValue, dtype) {
-	return full(array.shape, fillValue, dtype);
+  return full(array.shape, fillValue, dtype);
 }
 
 /**
