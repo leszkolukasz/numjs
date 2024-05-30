@@ -317,6 +317,73 @@ function ones (shape, dtype) {
 }
 
 /**
+ * Return a new array of given shape and type, filled with the specified value.
+ * The fillValue
+ *
+ * @param {(Array|number)} shape - Shape of the new array, e.g., [2, 3] or 2.
+ * @param {(number|Array)} fillValue - number to fill the entire array with
+ * @param {(string|object)}  dtype - The type of the output array.
+ *
+ * @return {NdArray} Array of ones with the given shape and dtype
+ */
+function full(shape, fillValue, dtype) {
+	if (_.isNumber(shape) && shape >= 0) {
+		shape = [shape];
+	}
+	var s = _.shapeSize(shape);
+	var T = _.getType(dtype);
+  var ndarrayMemory = new T(s);
+	var arr = new NdArray(ndarrayMemory, shape);
+
+  if(_.isNumber(fillValue)) {
+    ndarrayMemory.fill(fillValue);
+  } else {
+    // if array provided, fill out the array by repeating the fillValue
+    for(var i = 0; i < ndarrayMemory.length; i++) {
+      ndarrayMemory[i] = fillValue[i % fillValue.length];
+    }
+  }
+	return arr;
+}
+
+/**
+ * Return a new array filled with zeros shaped like another array
+ *
+ * @param {(NdArray)} array - the shape we want to use for a new array
+ * @param {(string|object)} dtype  The type of the output array.
+ *
+ * @return {NdArray} Array of zeros shaped like the array argument
+ */
+function zerosLike (array, dtype) {
+  return zeros(array.shape, dtype);
+}
+
+/**
+ * Return a new array filled with zeros shaped like another array
+ *
+ * @param {(NdArray)} array - the shape we want to use for a new array
+ * @param {(string|object)} dtype   The type of the output array.
+ *
+ * @return {NdArray} Array of ones shaped like the array argument
+ */
+function onesLike (array, dtype) {
+  return ones(array.shape, dtype);
+}
+
+/**
+ * Return a new array filled with fillValue shaped like another array
+ *
+ * @param {(NdArray)} array - the shape we want to use for a new array
+ * @param {(number|Array)} fillValue - number to fill the entire array with
+ * @param {(string|object)} dtype  - The type of the output array.
+ *
+ * @return {NdArray} Array of fillValue shaped like the array argument
+ */
+function fullLike(array, fillValue, dtype) {
+	return full(array.shape, fillValue, dtype);
+}
+
+/**
  * Return a new array of given shape and type, filled with `undefined` values.
  *
  * @param {(Array|int)} shape - Shape of the new array, e.g., [2, 3] or 2.
@@ -802,6 +869,10 @@ module.exports = {
   reshape: reshape,
   zeros: zeros,
   ones: ones,
+  full: full,
+  zerosLike: zerosLike,
+  onesLike: onesLike,
+  fullLike: fullLike,
   empty: empty,
   flatten: flatten,
   flip: flip,
