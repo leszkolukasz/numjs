@@ -384,6 +384,70 @@ function fullLike(array, fillValue, dtype) {
 }
 
 /**
+ * Return a new array of given shape and type, with 1s in the diagonal as the identity matrix
+ *
+ * @param {number} M - the number of rows
+ * @param {number?} N - the number of columns, defaults to N
+ * @param {(string|object)} dtype - The type of the output array.
+ *
+ * @return {NdArray} Array of ones with the given shape and dtype
+ */
+function eye (N, M, dtype) {
+  // in the case where eye(N, dtype)
+  if (_.isString(M)) {
+    dtype = M
+    M = undefined;
+  }
+  if(M === undefined) M = N;  
+
+  var T = _.getType(dtype);
+  const flatData = new T(N*M).fill(0);
+  var arr = new NdArray(flatData, [N, M]);
+
+  // then when i=j fill with 1s
+  for(let i = 0; i < N; i++) 
+    for(let j = 0; j < M; j++)
+      if(i === j) arr.set(i, j, 1);
+
+  return arr;
+}
+
+/**
+ * Return a new array of given shape and type, with 1s in the lower triange
+ *
+ * @param {number} M - the number of rows
+ * @param {number?} N - the number of columns, defaults to N
+ * @param {number?} k - the diagonal to fill under, defaults to 0 
+ * @param {(string|object)} dtype - The type of the output array.
+ *
+ * @return {NdArray} Array of ones with the given shape and dtype
+ */
+function tri (N, M, k = 0, dtype) {
+  // in the case where tri(N, dtype)
+  if (_.isString(M)) {
+    dtype = M
+    M = undefined;
+  }
+  // in the case where tri(N, M, dtype)
+  else if (_.isString(k)) {
+    dtype = k;
+    k = 0;
+  }; 
+  if(M === undefined) M = N;  
+
+  var T = _.getType(dtype);
+  const flatData = new T(N*M).fill(0);
+  var arr = new NdArray(flatData, [N, M]);
+
+  // then when i>j fill with 1s (lower triangle) increase k to increase the diagonl to fill
+  for(let i = 0; i < N; i++) 
+    for(let j = 0; j < M; j++)
+      if((i + k) > j) arr.set(i, j, 1);
+
+  return arr;
+}
+
+/**
  * Return a new array of given shape and type, filled with `undefined` values.
  *
  * @param {(Array|int)} shape - Shape of the new array, e.g., [2, 3] or 2.
@@ -870,6 +934,8 @@ module.exports = {
   zeros: zeros,
   ones: ones,
   full: full,
+  eye: eye,
+  tri: tri,
   zerosLike: zerosLike,
   onesLike: onesLike,
   fullLike: fullLike,
