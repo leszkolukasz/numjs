@@ -384,6 +384,17 @@ function fullLike (array, fillValue, dtype) {
 }
 
 /**
+ * Return a new array filled with random numbers
+ *
+ * @param {(NdArray)} array - the shape we want to use for a new array
+ *
+ * @return {NdArray} Array of random numbers shaped like the array argument
+ */
+function randomLike (array) {
+	return random(array.shape);
+}
+
+/**
  * Return a new array of given shape and type, with 1s in the diagonal as the identity matrix
  *
  * @param {number} M - the number of rows
@@ -939,6 +950,7 @@ module.exports = {
   zerosLike: zerosLike,
   onesLike: onesLike,
   fullLike: fullLike,
+  randomLike: randomLike,
   empty: empty,
   flatten: flatten,
   flip: flip,
