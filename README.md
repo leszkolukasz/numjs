@@ -437,6 +437,51 @@ array([[0.62755, 0.8278,0.21384],
 0.22216977543691244
 ```
 
+### Applying Functions over an Axis
+
+Commonly, you might want to apply a vector function across an axis of a matrix. You can do this with the `applyOverAxis` function. For example suppose I have a matrix a
+
+```js
+> a = nj.array([[0, 1, 2], 
+                [3, 4, 5]])
+```
+
+You can sum across the ith axis. For example the last axis is the rows, so I can specify the last axis -1
+
+```js
+> nj.applyOverAxis(a, nj.sum, { axis: -1 })
+array([  3, 12])
+```
+
+Or find the max down the columns (first axis is 0)
+```js
+> nj.applyOverAxis(a, nj.max, { axis: 0 })
+array([ 3, 4, 5])
+```
+
+If you don't want to reduce the shape/dimensions of the output, you can put `keepdims: true`. For example when we summed across the rows I can maintain those row dimensions like 
+
+```js
+> nj.applyOverAxis(a, nj.sum, { axis: -1, keepdims: true })
+array([[  3],
+       [ 12]])
+```
+
+This also works for tensors for example an array with (2,2,2) shape I can find the mean across the last axis:
+
+```js
+> b = array([[[ 0, 1],
+              [ 2, 3]],
+              [[ 4, 5],
+              [ 6, 7]]])
+>
+> nj.applyOverAxis(b, nj.mean, { axis: -1, keepdims: true })
+array([[[ 0.5],
+        [ 2.5]],
+       [[ 4.5],
+        [ 6.5]]])
+```
+
 ### Universal Functions
 __NumJs__ provides familiar mathematical functions such as `sin`, `cos`, and `exp`. These functions operate element-wise on an array, producing an `NdArray` as output:
 
