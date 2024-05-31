@@ -432,12 +432,12 @@ function eye (N, M, dtype) {
   if(M === undefined) M = N;  
 
   var T = _.getType(dtype);
-  const flatData = new T(N*M).fill(0);
+  var flatData = new T(N*M).fill(0);
   var arr = new NdArray(flatData, [N, M]);
 
   // then when i=j fill with 1s
-  for(let i = 0; i < N; i++) 
-    for(let j = 0; j < M; j++)
+  for(var i = 0; i < N; i++) 
+    for(var j = 0; j < M; j++)
       if(i === j) arr.set(i, j, 1);
 
   return arr;
@@ -467,12 +467,12 @@ function tri (N, M, k = 0, dtype) {
   if(M === undefined) M = N;  
 
   var T = _.getType(dtype);
-  const flatData = new T(N*M).fill(0);
+  var flatData = new T(N*M).fill(0);
   var arr = new NdArray(flatData, [N, M]);
 
   // then when i>j fill with 1s (lower triangle) increase k to increase the diagonl to fill
-  for(let i = 0; i < N; i++) 
-    for(let j = 0; j < M; j++)
+  for(var i = 0; i < N; i++) 
+    for(var j = 0; j < M; j++)
       if((i + k) > j) arr.set(i, j, 1);
 
   return arr;
@@ -967,7 +967,7 @@ function rot90 (m, k, axes) {
  * 
  * @example here I apply nj.sum across the rows of a matrix
  * ```js
- * > const A = nj.array([[1,2],
+ * > var A = nj.array([[1,2],
  *                       [3,4]]);
  * > nj.applyOverAxis(A, nj.sum, {axis: 1})
  * array([3, 7])
@@ -1023,8 +1023,8 @@ function applyOverAxis (arr, vectorFunc, { axis=undefined, keepdims=false } = {}
 /**
  * Helper method to essentially dynamically generated nestex for loops
  *
- * for(let i = 0; i < shape[0]; i++) {
- * 	for(let j = 0; j < shape[1]; j++) {
+ * for(var i = 0; i < shape[0]; i++) {
+ * 	for(var j = 0; j < shape[1]; j++) {
  * 		... and so on
  *  }
  * }
