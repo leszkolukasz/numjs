@@ -954,6 +954,92 @@ function rot90 (m, k, axes) {
   }
 }
 
+/**
+ * Apply an aggregate operation across an axis for all of the array 
+ * 
+ * @param {Array|NdArray} arr array to apply to
+ * @param {(vectorInput: NdArray) => number} vectorFunc a function that takes in a vector and returns a number
+ * @param {{axis: number|undefined, keepdims: boolean}?} optional takes in which axis you are applyOverAxising over
+ * and keepdims=true will put 1 for the axis dimension instead of removing it
+ *
+ * axis refers to the dimension you applyOverAxis over. So axis:1 will apply the vectorFunc to the vector rows in a matrix
+ * if axis=-1 this just means to applyOverAxis over the last axis, -2 second to last and so on
+ * 
+ * @example here I apply nj.sum across the rows of a matrix
+ * ```js
+ * > const A = nj.array([[1,2],
+ *                       [3,4]]);
+ * > nj.applyOverAxis(A, nj.sum, {axis: 1})
+ * array([3, 7])
+ * >
+ * > nj.applyOverAxis(A, nj.sum, {axis: 1, keepdims: true})
+ * array([[3],
+ *        [7]]);
+ * ```
+ * 
+ * @throws error if axis is too large for the given arr
+ * @return {NdArray} An array of the results from the vectorFunc batched over the axis
+ */
+function applyOverAxis(arr, vectorFunc, { axis=undefined, keepdims=false } = {}) {
+  // by default, compute across the flat array
+  if(axis === undefined) return vectorFunc(arr);
+  // ie when the axis is negative refer to end axes
+  if(axis < 0) {
+    axis = arr.shape.length + axis; // axis is - so will be < arr.shape.length
+  }
+  // if the axis is negative then wrap to end
+  if(axis > arr.shape.length || axis < 0) throw new errors.ValueError('the axis exceeds max number of axes (shape.length)');
+
+  // 
+  // Now iterate over all vectors around the given axis and apply the vectorFunc to it
+  // 
+	var results = [];
+	var iterShape = arr.shape.filter((d, i) => i !== axis);
+	// all possible indices we need to iterate over around the axis
+	var p = _allIndexCombinationsUpTo(iterShape);
+	for(let i = 0; i < p.length; i++) {
+    // put the null back where the axis is
+		var sliceLocation = p[i];
+		sliceLocation.splice(axis, 0, null); 
+
+    // select the vector given location and apply the vectorOperation
+		var vector = arr.pick(...sliceLocation); // column at axis
+		var apply = vectorFunc(vector);
+
+    // accumulate results
+		results.push(apply);
+	}
+
+  // reshape back to original array, but with the reduced axis dimension 
+	var resultShape = [...arr.shape];
+  if(keepdims) {
+    resultShape[axis] = 1;
+  } else {
+    resultShape.splice(axis, 1);
+  }
+	return NdArray.new(results).reshape(resultShape);
+}
+
+/**
+ * Given a shape like [2,2] will generate [[0, 0], [0, 1], [1, 0], [1, 1]]
+ * Basically a grid of values
+ * @private
+ * @param {Array} shape 
+ * @returns permutations of results of length == shape.length per element
+ */
+function _allIndexCombinationsUpTo(shape) {
+	let indices = [];
+	function _permutations(shape, ...pastIndices) {
+		if(shape.length === 0) return pastIndices;
+		for(let i = 0; i < shape[0]; i++) {
+			indices.push(_permutations(shape.slice(1), ...[...pastIndices, i]));
+		}
+		return pastIndices;
+	}
+	_permutations(shape);
+	return indices.filter(d => d.length === shape.length);
+}
+
 module.exports = {
   config: CONF,
   dtypes: DTYPES,
@@ -1028,5 +1114,6 @@ module.exports = {
   uint32: function (array) { return NdArray.new(array, 'uint32'); },
   float32: function (array) { return NdArray.new(array, 'float32'); },
   float64: function (array) { return NdArray.new(array, 'float64'); },
+  applyOverAxis: applyOverAxis,
   images: require('./images')
 };
