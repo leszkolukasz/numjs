@@ -980,7 +980,7 @@ function rot90 (m, k, axes) {
  * @throws error if axis is too large for the given arr
  * @return {NdArray} An array of the results from the vectorFunc batched over the axis
  */
-function applyOverAxis(arr, vectorFunc, { axis=undefined, keepdims=false } = {}) {
+function applyOverAxis (arr, vectorFunc, { axis=undefined, keepdims=false } = {}) {
   // by default, compute across the flat array
   if(axis === undefined) return vectorFunc(arr);
   // ie when the axis is negative refer to end axes
@@ -996,8 +996,8 @@ function applyOverAxis(arr, vectorFunc, { axis=undefined, keepdims=false } = {})
 	var results = [];
 	var iterShape = arr.shape.filter((d, i) => i !== axis);
 	// all possible indices we need to iterate over around the axis
-	var p = _allIndexCombinationsUpTo(iterShape);
-	for(let i = 0; i < p.length; i++) {
+	var p = nestedIteration(iterShape);
+	for(var i = 0; i < p.length; i++) {
     // put the null back where the axis is
 		var sliceLocation = p[i];
 		sliceLocation.splice(axis, 0, null); 
@@ -1021,23 +1021,28 @@ function applyOverAxis(arr, vectorFunc, { axis=undefined, keepdims=false } = {})
 }
 
 /**
- * Given a shape like [2,2] will generate [[0, 0], [0, 1], [1, 0], [1, 1]]
- * Basically a grid of values
- * @private
- * @param {Array} shape 
- * @returns permutations of results of length == shape.length per element
+ * Helper method to essentially dynamically generated nestex for loops
+ *
+ * for(let i = 0; i < shape[0]; i++) {
+ * 	for(let j = 0; j < shape[1]; j++) {
+ * 		... and so on
+ *  }
+ * }
+ * 
+ * @param {Array<number>} shape 
+ * @returns i,j,k... indices for a nested for loop based on shape
  */
-function _allIndexCombinationsUpTo(shape) {
-	let indices = [];
-	function _permutations(shape, ...pastIndices) {
-		if(shape.length === 0) return pastIndices;
-		for(let i = 0; i < shape[0]; i++) {
-			indices.push(_permutations(shape.slice(1), ...[...pastIndices, i]));
+function nestedIteration (shape) {
+	var result = [];
+	function _iterate(shapeIndex, temp=[]) {
+		if(temp.length === shape.length) return temp;
+		for(var i = 0; i < shape[shapeIndex]; i++) {
+			var nested = _iterate(shapeIndex+1, [...temp, i]);
+			if (nested) result.push(nested);
 		}
-		return pastIndices;
 	}
-	_permutations(shape);
-	return indices.filter(d => d.length === shape.length);
+	_iterate(0);
+	return result;
 }
 
 module.exports = {
