@@ -700,6 +700,13 @@ NdArray.prototype.toString = function () {
 };
 
 /**
+* Calls console.log(this.toString())
+*/
+NdArray.prototype.print = function () {
+  console.log(this.toString());
+};
+
+/**
 * Stringify the array to make it readable in the console, by a human.
 *
 * @returns {string}
