@@ -6,7 +6,7 @@ var expect = require("expect.js");
 var nj = require("../../src");
 
 describe("fullLike", function () {
-  const A = nj.array([
+  var A = nj.array([
       [1, 2],
       [3, 4],
   ]);
