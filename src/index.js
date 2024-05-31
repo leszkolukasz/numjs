@@ -993,31 +993,31 @@ function applyOverAxis (arr, vectorFunc, { axis=undefined, keepdims=false } = {}
   // 
   // Now iterate over all vectors around the given axis and apply the vectorFunc to it
   // 
-	var results = [];
-	var iterShape = arr.shape.filter((d, i) => i !== axis);
-	// all possible indices we need to iterate over around the axis
-	var p = nestedIteration(iterShape);
-	for(var i = 0; i < p.length; i++) {
+  var results = [];
+  var iterShape = arr.shape.filter((d, i) => i !== axis);
+  // all possible indices we need to iterate over around the axis
+  var p = nestedIteration(iterShape);
+  for(var i = 0; i < p.length; i++) {
     // put the null back where the axis is
-		var sliceLocation = p[i];
-		sliceLocation.splice(axis, 0, null); 
+    var sliceLocation = p[i];
+    sliceLocation.splice(axis, 0, null); 
 
     // select the vector given location and apply the vectorOperation
-		var vector = arr.pick(...sliceLocation); // column at axis
-		var apply = vectorFunc(vector);
+    var vector = arr.pick(...sliceLocation); // column at axis
+    var apply = vectorFunc(vector);
 
     // accumulate results
-		results.push(apply);
-	}
+    results.push(apply);
+  }
 
   // reshape back to original array, but with the reduced axis dimension 
-	var resultShape = [...arr.shape];
+  var resultShape = [...arr.shape];
   if(keepdims) {
     resultShape[axis] = 1;
   } else {
     resultShape.splice(axis, 1);
   }
-	return NdArray.new(results).reshape(resultShape);
+  return NdArray.new(results).reshape(resultShape);
 }
 
 /**
@@ -1033,16 +1033,16 @@ function applyOverAxis (arr, vectorFunc, { axis=undefined, keepdims=false } = {}
  * @returns i,j,k... indices for a nested for loop based on shape
  */
 function nestedIteration (shape) {
-	var result = [];
-	function _iterate(shapeIndex, temp=[]) {
-		if(temp.length === shape.length) return temp;
-		for(var i = 0; i < shape[shapeIndex]; i++) {
-			var nested = _iterate(shapeIndex+1, [...temp, i]);
-			if (nested) result.push(nested);
-		}
-	}
-	_iterate(0);
-	return result;
+  var result = [];
+  function _iterate(shapeIndex, temp=[]) {
+    if(temp.length === shape.length) return temp;
+    for(var i = 0; i < shape[shapeIndex]; i++) {
+      var nested = _iterate(shapeIndex+1, [...temp, i]);
+      if (nested) result.push(nested);
+    }
+  }
+  _iterate(0);
+  return result;
 }
 
 module.exports = {
