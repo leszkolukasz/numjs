@@ -22332,78 +22332,82 @@ module.exports = function areaValue (h0, w0, H, W, SAT) {
 };
 
 },{"./area-sum":26}],28:[function(require,module,exports){
-(function (__dirname){
+(function (process,__dirname){
 'use strict';
-var path = require('path');
-
-var read = require('./read');
-
-var DATA_DIR = path.join(path.resolve(__dirname), '../../data');
-
-function getArray (fileName) {
-  return read(path.join(DATA_DIR, fileName));
-}
 
 var exports = {};
 
-/**
-* @property {NdArray} digit - 28x28 grayscale image with an handwritten digit extracted from MNIST database
-*/
-Object.defineProperty(exports, 'digit', {
-  get: function () {
-    return getArray('five.png');
-  }
-});
+if (typeof process !== 'undefined' && process.versions && process.versions.node) {
+  var path = require('path');
 
-/**
-* @property {NdArray} five - 28x28 grayscale image with an handwritten digit extracted from MNIST database
-*/
-Object.defineProperty(exports, 'five', {
-  get: function () {
-    return getArray('five.png');
-  }
-});
+  var read = require('./read');
 
-/**
-* @property {NdArray} node - 300x600 COLOR image representing Node.js's logo
-*/
-Object.defineProperty(exports, 'node', {
-  get: function () {
-    return getArray('nodejs.png');
-  }
-});
+  var DATA_DIR = path.join(path.resolve(__dirname), '../../data');
 
-/**
-* @property {NdArray} lena - The standard, yet sometimes controversial Lena test image was scanned from the November 1972 edition of Playboy magazine. From an image processing perspective, this image is useful because it contains smooth, textured, shaded as well as detail areas.
-*/
-Object.defineProperty(exports, 'lena', {
-  get: function () {
-    return getArray('lenna.png');
+  function getArray (fileName) {
+    return read(path.join(DATA_DIR, fileName));
   }
-});
 
-/**
-* @property {NdArray} lenna - The standard, yet sometimes controversial Lena test image was scanned from the November 1972 edition of Playboy magazine. From an image processing perspective, this image is useful because it contains smooth, textured, shaded as well as detail areas.
-*/
-Object.defineProperty(exports, 'lenna', {
-  get: function () {
-    return getArray('lenna.png');
-  }
-});
+  /**
+  * @property {NdArray} digit - 28x28 grayscale image with an handwritten digit extracted from MNIST database
+  */
+  Object.defineProperty(exports, 'digit', {
+    get: function () {
+      return getArray('five.png');
+    }
+  });
 
-/**
-* @property {NdArray} moon - This low-contrast image of the surface of the moon is useful for illustrating histogram equalization and contrast stretching.
-*/
-Object.defineProperty(exports, 'moon', {
-  get: function () {
-    return getArray('moon.jpg');
-  }
-});
+  /**
+  * @property {NdArray} five - 28x28 grayscale image with an handwritten digit extracted from MNIST database
+  */
+  Object.defineProperty(exports, 'five', {
+    get: function () {
+      return getArray('five.png');
+    }
+  });
+
+  /**
+  * @property {NdArray} node - 300x600 COLOR image representing Node.js's logo
+  */
+  Object.defineProperty(exports, 'node', {
+    get: function () {
+      return getArray('nodejs.png');
+    }
+  });
+
+  /**
+  * @property {NdArray} lena - The standard, yet sometimes controversial Lena test image was scanned from the November 1972 edition of Playboy magazine. From an image processing perspective, this image is useful because it contains smooth, textured, shaded as well as detail areas.
+  */
+  Object.defineProperty(exports, 'lena', {
+    get: function () {
+      return getArray('lenna.png');
+    }
+  });
+
+  /**
+  * @property {NdArray} lenna - The standard, yet sometimes controversial Lena test image was scanned from the November 1972 edition of Playboy magazine. From an image processing perspective, this image is useful because it contains smooth, textured, shaded as well as detail areas.
+  */
+  Object.defineProperty(exports, 'lenna', {
+    get: function () {
+      return getArray('lenna.png');
+    }
+  });
+
+  /**
+  * @property {NdArray} moon - This low-contrast image of the surface of the moon is useful for illustrating histogram equalization and contrast stretching.
+  */
+  Object.defineProperty(exports, 'moon', {
+    get: function () {
+      return getArray('moon.jpg');
+    }
+  });
+
+}
 
 module.exports = exports;
 
-}).call(this,"/src/images")
-},{"./read":32,"path":19}],29:[function(require,module,exports){
+}).call(this,require('_process'),"/src/images")
+},{"./read":32,"_process":20,"path":19}],29:[function(require,module,exports){
 'use strict';
 
 var NdArray = require('../ndarray');
@@ -22444,7 +22448,7 @@ module.exports = {
 
 var NdArray = require('../ndarray');
 
-var doCheckIsGrayscale = require('cwise/lib/wrapper')({"args":["array","array","array"],"pre":{"body":"{this_isgray=!0}","args":[],"thisVars":["this_isgray"],"localVars":[]},"body":{"body":"{_inline_82_arg0_===_inline_82_arg1_&&_inline_82_arg1_===_inline_82_arg2_||(this_isgray=!1)}","args":[{"name":"_inline_82_arg0_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_82_arg1_","lvalue":false,"rvalue":true,"count":2},{"name":"_inline_82_arg2_","lvalue":false,"rvalue":true,"count":1}],"thisVars":["this_isgray"],"localVars":[]},"post":{"body":"{return this_isgray}","args":[],"thisVars":["this_isgray"],"localVars":[]},"debug":false,"funcName":"doCheckIsGrayscaleCwise","blockSize":64});
+var doCheckIsGrayscale = require('cwise/lib/wrapper')({"args":["array","array","array"],"pre":{"body":"{this_isgray=!0}","args":[],"thisVars":["this_isgray"],"localVars":[]},"body":{"body":"{_inline_40_arg0_===_inline_40_arg1_&&_inline_40_arg1_===_inline_40_arg2_||(this_isgray=!1)}","args":[{"name":"_inline_40_arg0_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_40_arg1_","lvalue":false,"rvalue":true,"count":2},{"name":"_inline_40_arg2_","lvalue":false,"rvalue":true,"count":1}],"thisVars":["this_isgray"],"localVars":[]},"post":{"body":"{return this_isgray}","args":[],"thisVars":["this_isgray"],"localVars":[]},"debug":false,"funcName":"doCheckIsGrayscaleCwise","blockSize":64});
 
 module.exports = function isGrayscaleImage (arr) {
   if (arr instanceof NdArray) {
@@ -22569,7 +22573,7 @@ var NdArray = require('../ndarray');
 var __ = require('../utils');
 
 // takes ~157ms on a 5000x5000 image
-var doRgb2gray = require('cwise/lib/wrapper')({"args":["array","array","array","array"],"pre":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"body":{"body":"{_inline_79_arg0_=4899*_inline_79_arg1_+9617*_inline_79_arg2_+1868*_inline_79_arg3_+8192>>14}","args":[{"name":"_inline_79_arg0_","lvalue":true,"rvalue":false,"count":1},{"name":"_inline_79_arg1_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_79_arg2_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_79_arg3_","lvalue":false,"rvalue":true,"count":1}],"thisVars":[],"localVars":[]},"post":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"debug":false,"funcName":"rgb2grayCwise","blockSize":64});
+var doRgb2gray = require('cwise/lib/wrapper')({"args":["array","array","array","array"],"pre":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"body":{"body":"{_inline_37_arg0_=4899*_inline_37_arg1_+9617*_inline_37_arg2_+1868*_inline_37_arg3_+8192>>14}","args":[{"name":"_inline_37_arg0_","lvalue":true,"rvalue":false,"count":1},{"name":"_inline_37_arg1_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_37_arg2_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_37_arg3_","lvalue":false,"rvalue":true,"count":1}],"thisVars":[],"localVars":[]},"post":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"debug":false,"funcName":"rgb2grayCwise","blockSize":64});
 
 /**
  * Compute Grayscale version of an RGB image.
@@ -22604,7 +22608,7 @@ module.exports = function rgb2gray (img) {
 var NdArray = require('../ndarray');
 var rgb2gray = require('./rgb2gray');
 
-var doIntegrate = require('cwise/lib/wrapper')({"args":["array","array","index",{"offset":[-1,-1],"array":0},{"offset":[-1,0],"array":0},{"offset":[0,-1],"array":0}],"pre":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"body":{"body":"{_inline_67_arg0_=0!==_inline_67_arg2_[0]&&0!==_inline_67_arg2_[1]?_inline_67_arg1_+_inline_67_arg4_+_inline_67_arg5_-_inline_67_arg3_:0===_inline_67_arg2_[0]&&0===_inline_67_arg2_[1]?_inline_67_arg1_:0===_inline_67_arg2_[0]?_inline_67_arg1_+_inline_67_arg5_:_inline_67_arg1_+_inline_67_arg4_}","args":[{"name":"_inline_67_arg0_","lvalue":true,"rvalue":false,"count":1},{"name":"_inline_67_arg1_","lvalue":false,"rvalue":true,"count":4},{"name":"_inline_67_arg2_","lvalue":false,"rvalue":true,"count":5},{"name":"_inline_67_arg3_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_67_arg4_","lvalue":false,"rvalue":true,"count":2},{"name":"_inline_67_arg5_","lvalue":false,"rvalue":true,"count":2}],"thisVars":[],"localVars":[]},"post":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"debug":false,"funcName":"doIntegrateBody","blockSize":64});
+var doIntegrate = require('cwise/lib/wrapper')({"args":["array","array","index",{"offset":[-1,-1],"array":0},{"offset":[-1,0],"array":0},{"offset":[0,-1],"array":0}],"pre":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"body":{"body":"{_inline_25_arg0_=0!==_inline_25_arg2_[0]&&0!==_inline_25_arg2_[1]?_inline_25_arg1_+_inline_25_arg4_+_inline_25_arg5_-_inline_25_arg3_:0===_inline_25_arg2_[0]&&0===_inline_25_arg2_[1]?_inline_25_arg1_:0===_inline_25_arg2_[0]?_inline_25_arg1_+_inline_25_arg5_:_inline_25_arg1_+_inline_25_arg4_}","args":[{"name":"_inline_25_arg0_","lvalue":true,"rvalue":false,"count":1},{"name":"_inline_25_arg1_","lvalue":false,"rvalue":true,"count":4},{"name":"_inline_25_arg2_","lvalue":false,"rvalue":true,"count":5},{"name":"_inline_25_arg3_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_25_arg4_","lvalue":false,"rvalue":true,"count":2},{"name":"_inline_25_arg5_","lvalue":false,"rvalue":true,"count":2}],"thisVars":[],"localVars":[]},"post":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"debug":false,"funcName":"doIntegrateBody","blockSize":64});
 
 /**
  * Compute Sum Area Table, also known as the integral of the image
@@ -22665,7 +22669,7 @@ var NdArray = require('../ndarray');
 var __ = require('../utils');
 var rgb2gray = require('./rgb2gray');
 
-var doScharr = require('cwise/lib/wrapper')({"args":["array","array",{"offset":[-1,-1],"array":1},{"offset":[-1,0],"array":1},{"offset":[-1,1],"array":1},{"offset":[0,-1],"array":1},{"offset":[0,1],"array":1},{"offset":[1,-1],"array":1},{"offset":[1,0],"array":1},{"offset":[1,1],"array":1}],"pre":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"body":{"body":"{var _inline_76_q=3*_inline_76_arg2_+10*_inline_76_arg3_+3*_inline_76_arg4_-3*_inline_76_arg7_-10*_inline_76_arg8_-3*_inline_76_arg9_,_inline_76_s=3*_inline_76_arg2_-3*_inline_76_arg4_+10*_inline_76_arg5_-10*_inline_76_arg6_+3*_inline_76_arg7_-3*_inline_76_arg9_;_inline_76_arg0_=Math.sqrt(_inline_76_s*_inline_76_s+_inline_76_q*_inline_76_q)}","args":[{"name":"_inline_76_arg0_","lvalue":true,"rvalue":false,"count":1},{"name":"_inline_76_arg1_","lvalue":false,"rvalue":false,"count":0},{"name":"_inline_76_arg2_","lvalue":false,"rvalue":true,"count":2},{"name":"_inline_76_arg3_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_76_arg4_","lvalue":false,"rvalue":true,"count":2},{"name":"_inline_76_arg5_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_76_arg6_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_76_arg7_","lvalue":false,"rvalue":true,"count":2},{"name":"_inline_76_arg8_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_76_arg9_","lvalue":false,"rvalue":true,"count":2}],"thisVars":[],"localVars":["_inline_76_q","_inline_76_s"]},"post":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"debug":false,"funcName":"doSobelBody","blockSize":64});
+var doScharr = require('cwise/lib/wrapper')({"args":["array","array",{"offset":[-1,-1],"array":1},{"offset":[-1,0],"array":1},{"offset":[-1,1],"array":1},{"offset":[0,-1],"array":1},{"offset":[0,1],"array":1},{"offset":[1,-1],"array":1},{"offset":[1,0],"array":1},{"offset":[1,1],"array":1}],"pre":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"body":{"body":"{var _inline_34_q=3*_inline_34_arg2_+10*_inline_34_arg3_+3*_inline_34_arg4_-3*_inline_34_arg7_-10*_inline_34_arg8_-3*_inline_34_arg9_,_inline_34_s=3*_inline_34_arg2_-3*_inline_34_arg4_+10*_inline_34_arg5_-10*_inline_34_arg6_+3*_inline_34_arg7_-3*_inline_34_arg9_;_inline_34_arg0_=Math.sqrt(_inline_34_s*_inline_34_s+_inline_34_q*_inline_34_q)}","args":[{"name":"_inline_34_arg0_","lvalue":true,"rvalue":false,"count":1},{"name":"_inline_34_arg1_","lvalue":false,"rvalue":false,"count":0},{"name":"_inline_34_arg2_","lvalue":false,"rvalue":true,"count":2},{"name":"_inline_34_arg3_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_34_arg4_","lvalue":false,"rvalue":true,"count":2},{"name":"_inline_34_arg5_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_34_arg6_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_34_arg7_","lvalue":false,"rvalue":true,"count":2},{"name":"_inline_34_arg8_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_34_arg9_","lvalue":false,"rvalue":true,"count":2}],"thisVars":[],"localVars":["_inline_34_q","_inline_34_s"]},"post":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"debug":false,"funcName":"doSobelBody","blockSize":64});
 
 /**
  * Find the edge magnitude using the Scharr transform.
@@ -22704,7 +22708,7 @@ var NdArray = require('../ndarray');
 var __ = require('../utils');
 var rgb2gray = require('./rgb2gray');
 
-var doSobel = require('cwise/lib/wrapper')({"args":["array","array",{"offset":[-1,-1],"array":1},{"offset":[-1,0],"array":1},{"offset":[-1,1],"array":1},{"offset":[0,-1],"array":1},{"offset":[0,1],"array":1},{"offset":[1,-1],"array":1},{"offset":[1,0],"array":1},{"offset":[1,1],"array":1}],"pre":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"body":{"body":"{var _inline_70_q=_inline_70_arg2_+2*_inline_70_arg3_+_inline_70_arg4_-_inline_70_arg7_-2*_inline_70_arg8_-_inline_70_arg9_,_inline_70_s=_inline_70_arg2_-_inline_70_arg4_+2*_inline_70_arg5_-2*_inline_70_arg6_+_inline_70_arg7_-_inline_70_arg9_;_inline_70_arg0_=Math.sqrt(_inline_70_s*_inline_70_s+_inline_70_q*_inline_70_q)}","args":[{"name":"_inline_70_arg0_","lvalue":true,"rvalue":false,"count":1},{"name":"_inline_70_arg1_","lvalue":false,"rvalue":false,"count":0},{"name":"_inline_70_arg2_","lvalue":false,"rvalue":true,"count":2},{"name":"_inline_70_arg3_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_70_arg4_","lvalue":false,"rvalue":true,"count":2},{"name":"_inline_70_arg5_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_70_arg6_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_70_arg7_","lvalue":false,"rvalue":true,"count":2},{"name":"_inline_70_arg8_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_70_arg9_","lvalue":false,"rvalue":true,"count":2}],"thisVars":[],"localVars":["_inline_70_q","_inline_70_s"]},"post":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"debug":false,"funcName":"doSobelBody","blockSize":64});
+var doSobel = require('cwise/lib/wrapper')({"args":["array","array",{"offset":[-1,-1],"array":1},{"offset":[-1,0],"array":1},{"offset":[-1,1],"array":1},{"offset":[0,-1],"array":1},{"offset":[0,1],"array":1},{"offset":[1,-1],"array":1},{"offset":[1,0],"array":1},{"offset":[1,1],"array":1}],"pre":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"body":{"body":"{var _inline_31_q=_inline_31_arg2_+2*_inline_31_arg3_+_inline_31_arg4_-_inline_31_arg7_-2*_inline_31_arg8_-_inline_31_arg9_,_inline_31_s=_inline_31_arg2_-_inline_31_arg4_+2*_inline_31_arg5_-2*_inline_31_arg6_+_inline_31_arg7_-_inline_31_arg9_;_inline_31_arg0_=Math.sqrt(_inline_31_s*_inline_31_s+_inline_31_q*_inline_31_q)}","args":[{"name":"_inline_31_arg0_","lvalue":true,"rvalue":false,"count":1},{"name":"_inline_31_arg1_","lvalue":false,"rvalue":false,"count":0},{"name":"_inline_31_arg2_","lvalue":false,"rvalue":true,"count":2},{"name":"_inline_31_arg3_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_31_arg4_","lvalue":false,"rvalue":true,"count":2},{"name":"_inline_31_arg5_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_31_arg6_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_31_arg7_","lvalue":false,"rvalue":true,"count":2},{"name":"_inline_31_arg8_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_31_arg9_","lvalue":false,"rvalue":true,"count":2}],"thisVars":[],"localVars":["_inline_31_q","_inline_31_s"]},"post":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"debug":false,"funcName":"doSobelBody","blockSize":64});
 
 /**
  * Find the edge magnitude using the Sobel transform.
@@ -22743,7 +22747,7 @@ module.exports = function computeSobel (img) {
 var NdArray = require('../ndarray');
 var rgb2gray = require('./rgb2gray');
 
-var doIntegrate = require('cwise/lib/wrapper')({"args":["array","array","index",{"offset":[-1,-1],"array":0},{"offset":[-1,0],"array":0},{"offset":[0,-1],"array":0}],"pre":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"body":{"body":"{_inline_73_arg0_=0!==_inline_73_arg2_[0]&&0!==_inline_73_arg2_[1]?_inline_73_arg1_*_inline_73_arg1_+_inline_73_arg4_+_inline_73_arg5_-_inline_73_arg3_:0===_inline_73_arg2_[0]&&0===_inline_73_arg2_[1]?_inline_73_arg1_*_inline_73_arg1_:0===_inline_73_arg2_[0]?_inline_73_arg1_*_inline_73_arg1_+_inline_73_arg5_:_inline_73_arg1_*_inline_73_arg1_+_inline_73_arg4_}","args":[{"name":"_inline_73_arg0_","lvalue":true,"rvalue":false,"count":1},{"name":"_inline_73_arg1_","lvalue":false,"rvalue":true,"count":8},{"name":"_inline_73_arg2_","lvalue":false,"rvalue":true,"count":5},{"name":"_inline_73_arg3_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_73_arg4_","lvalue":false,"rvalue":true,"count":2},{"name":"_inline_73_arg5_","lvalue":false,"rvalue":true,"count":2}],"thisVars":[],"localVars":[]},"post":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"debug":false,"funcName":"doIntegrateBody","blockSize":64});
+var doIntegrate = require('cwise/lib/wrapper')({"args":["array","array","index",{"offset":[-1,-1],"array":0},{"offset":[-1,0],"array":0},{"offset":[0,-1],"array":0}],"pre":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"body":{"body":"{_inline_28_arg0_=0!==_inline_28_arg2_[0]&&0!==_inline_28_arg2_[1]?_inline_28_arg1_*_inline_28_arg1_+_inline_28_arg4_+_inline_28_arg5_-_inline_28_arg3_:0===_inline_28_arg2_[0]&&0===_inline_28_arg2_[1]?_inline_28_arg1_*_inline_28_arg1_:0===_inline_28_arg2_[0]?_inline_28_arg1_*_inline_28_arg1_+_inline_28_arg5_:_inline_28_arg1_*_inline_28_arg1_+_inline_28_arg4_}","args":[{"name":"_inline_28_arg0_","lvalue":true,"rvalue":false,"count":1},{"name":"_inline_28_arg1_","lvalue":false,"rvalue":true,"count":8},{"name":"_inline_28_arg2_","lvalue":false,"rvalue":true,"count":5},{"name":"_inline_28_arg3_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_28_arg4_","lvalue":false,"rvalue":true,"count":2},{"name":"_inline_28_arg5_","lvalue":false,"rvalue":true,"count":2}],"thisVars":[],"localVars":[]},"post":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"debug":false,"funcName":"doIntegrateBody","blockSize":64});
 
 /**
  * Compute Squared Sum Area Table, also known as the integral of the squared image
@@ -23081,6 +23085,26 @@ function max (x) {
 }
 
 /**
+ * Return the index of the minimum value of the array
+ *
+ * @param {(Array|NdArray|number)} x
+ * @returns {Number}
+ */
+function argmin (x) {
+  return NdArray.new(x).argmin();
+}
+
+/**
+ * Return the index of the maximum value of the array
+ *
+ * @param {(Array|NdArray|number)} x
+ * @returns {Number}
+ */
+function argmax (x) {
+  return NdArray.new(x).argmax();
+}
+
+/**
  * Return element-wise remainder of division.
  * Computes the remainder complementary to the `floor` function. It is equivalent to the Javascript modulus operator``x1 % x2`` and has the same sign as the divisor x2.
  *
@@ -23202,6 +23226,148 @@ function ones (shape, dtype) {
 }
 
 /**
+ * Return a new array of given shape and type, filled with the specified value.
+ * The fillValue
+ *
+ * @param {(Array|number)} shape - Shape of the new array, e.g., [2, 3] or 2.
+ * @param {(number|Array)} fillValue - number to fill the entire array with
+ * @param {(string|object)}  dtype - The type of the output array.
+ *
+ * @return {NdArray} Array of ones with the given shape and dtype
+ */
+function full (shape, fillValue, dtype) {
+  if (_.isNumber(shape) && shape >= 0) {
+    shape = [shape];
+  }
+  var s = _.shapeSize(shape);
+  var T = _.getType(dtype);
+  var ndarrayMemory = new T(s);
+  var arr = new NdArray(ndarrayMemory, shape);
+
+  if(_.isNumber(fillValue)) {
+    ndarrayMemory.fill(fillValue);
+    } else {
+    // if array provided, fill out the array by repeating the fillValue
+    for(var i = 0; i < ndarrayMemory.length; i++) {
+      ndarrayMemory[i] = fillValue[i % fillValue.length];
+    }
+  }
+  return arr;
+}
+
+/**
+ * Return a new array filled with zeros shaped like another array
+ *
+ * @param {(NdArray)} array - the shape we want to use for a new array
+ * @param {(string|object)} dtype  The type of the output array.
+ *
+ * @return {NdArray} Array of zeros shaped like the array argument
+ */
+function zerosLike (array, dtype) {
+  return zeros(array.shape, dtype);
+}
+
+/**
+ * Return a new array filled with zeros shaped like another array
+ *
+ * @param {(NdArray)} array - the shape we want to use for a new array
+ * @param {(string|object)} dtype   The type of the output array.
+ *
+ * @return {NdArray} Array of ones shaped like the array argument
+ */
+function onesLike (array, dtype) {
+  return ones(array.shape, dtype);
+}
+
+/**
+ * Return a new array filled with fillValue shaped like another array
+ *
+ * @param {(NdArray)} array - the shape we want to use for a new array
+ * @param {(number|Array)} fillValue - number to fill the entire array with
+ * @param {(string|object)} dtype  - The type of the output array.
+ *
+ * @return {NdArray} Array of fillValue shaped like the array argument
+ */
+function fullLike (array, fillValue, dtype) {
+  return full(array.shape, fillValue, dtype);
+}
+
+/**
+ * Return a new array filled with random numbers
+ *
+ * @param {(NdArray)} array - the shape we want to use for a new array
+ *
+ * @return {NdArray} Array of random numbers shaped like the array argument
+ */
+function randomLike (array) {
+  return random(array.shape);
+}
+
+/**
+ * Return a new array of given shape and type, with 1s in the diagonal as the identity matrix
+ *
+ * @param {number} M - the number of rows
+ * @param {number?} N - the number of columns, defaults to N
+ * @param {(string|object)} dtype - The type of the output array.
+ *
+ * @return {NdArray} Array of ones with the given shape and dtype
+ */
+function eye (N, M, dtype) {
+  // in the case where eye(N, dtype)
+  if (_.isString(M)) {
+    dtype = M
+    M = undefined;
+  }
+  if(M === undefined) M = N;  
+
+  var T = _.getType(dtype);
+  var flatData = new T(N*M).fill(0);
+  var arr = new NdArray(flatData, [N, M]);
+
+  // then when i=j fill with 1s
+  for(var i = 0; i < N; i++) 
+    for(var j = 0; j < M; j++)
+      if(i === j) arr.set(i, j, 1);
+
+  return arr;
+}
+
+/**
+ * Return a new array of given shape and type, with 1s in the lower triange
+ *
+ * @param {number} M - the number of rows
+ * @param {number?} N - the number of columns, defaults to N
+ * @param {number?} k - the diagonal to fill under, defaults to 0 
+ * @param {(string|object)} dtype - The type of the output array.
+ *
+ * @return {NdArray} Array of ones with the given shape and dtype
+ */
+function tri (N, M, k = 0, dtype) {
+  // in the case where tri(N, dtype)
+  if (_.isString(M)) {
+    dtype = M
+    M = undefined;
+  }
+  // in the case where tri(N, M, dtype)
+  else if (_.isString(k)) {
+    dtype = k;
+    k = 0;
+  }; 
+  if(M === undefined) M = N;  
+
+  var T = _.getType(dtype);
+  var flatData = new T(N*M).fill(0);
+  var arr = new NdArray(flatData, [N, M]);
+
+  // then when i>j fill with 1s (lower triangle) increase k to increase the diagonl to fill
+  for(var i = 0; i < N; i++) 
+    for(var j = 0; j < M; j++)
+      if((i + k) > j) arr.set(i, j, 1);
+
+  return arr;
+}
+
+/**
  * Return a new array of given shape and type, filled with `undefined` values.
  *
  * @param {(Array|int)} shape - Shape of the new array, e.g., [2, 3] or 2.
@@ -23249,7 +23415,7 @@ function softmax (x) {
   return e;
 }
 
-var doSigmoid = require('cwise/lib/wrapper')({"args":["array","scalar"],"pre":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"body":{"body":"{_inline_43_arg0_=_inline_43_arg0_<-30?0:_inline_43_arg0_>30?1:1/(1+Math.exp(-1*_inline_43_arg1_*_inline_43_arg0_))}","args":[{"name":"_inline_43_arg0_","lvalue":true,"rvalue":true,"count":4},{"name":"_inline_43_arg1_","lvalue":false,"rvalue":true,"count":1}],"thisVars":[],"localVars":[]},"post":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"debug":false,"funcName":"sigmoidCwise","blockSize":64});
+var doSigmoid = require('cwise/lib/wrapper')({"args":["array","scalar"],"pre":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"body":{"body":"{_inline_1_arg0_=_inline_1_arg0_<-30?0:_inline_1_arg0_>30?1:1/(1+Math.exp(-1*_inline_1_arg1_*_inline_1_arg0_))}","args":[{"name":"_inline_1_arg0_","lvalue":true,"rvalue":true,"count":4},{"name":"_inline_1_arg1_","lvalue":false,"rvalue":true,"count":1}],"thisVars":[],"localVars":[]},"post":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"debug":false,"funcName":"sigmoidCwise","blockSize":64});
 
 /**
  * Return the sigmoid of the input array, element-wise.
@@ -23264,7 +23430,7 @@ function sigmoid (x, t) {
   return x;
 }
 
-var doClip = require('cwise/lib/wrapper')({"args":["array","scalar","scalar"],"pre":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"body":{"body":"{_inline_46_arg0_=Math.min(Math.max(_inline_46_arg1_,_inline_46_arg0_),_inline_46_arg2_)}","args":[{"name":"_inline_46_arg0_","lvalue":true,"rvalue":true,"count":2},{"name":"_inline_46_arg1_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_46_arg2_","lvalue":false,"rvalue":true,"count":1}],"thisVars":[],"localVars":[]},"post":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"debug":false,"funcName":"clipCwise","blockSize":64});
+var doClip = require('cwise/lib/wrapper')({"args":["array","scalar","scalar"],"pre":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"body":{"body":"{_inline_4_arg0_=Math.min(Math.max(_inline_4_arg1_,_inline_4_arg0_),_inline_4_arg2_)}","args":[{"name":"_inline_4_arg0_","lvalue":true,"rvalue":true,"count":2},{"name":"_inline_4_arg1_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_4_arg2_","lvalue":false,"rvalue":true,"count":1}],"thisVars":[],"localVars":[]},"post":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"debug":false,"funcName":"clipCwise","blockSize":64});
 
 /**
  * Clip (limit) the values in an array between min and max, element-wise.
@@ -23286,7 +23452,7 @@ function clip (x, min, max) {
   return s;
 }
 
-var doLeakyRelu = require('cwise/lib/wrapper')({"args":["array","scalar"],"pre":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"body":{"body":"{_inline_49_arg0_=Math.max(_inline_49_arg1_*_inline_49_arg0_,_inline_49_arg0_)}","args":[{"name":"_inline_49_arg0_","lvalue":true,"rvalue":true,"count":3},{"name":"_inline_49_arg1_","lvalue":false,"rvalue":true,"count":1}],"thisVars":[],"localVars":[]},"post":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"debug":false,"funcName":"leakyReluCwise","blockSize":64});
+var doLeakyRelu = require('cwise/lib/wrapper')({"args":["array","scalar"],"pre":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"body":{"body":"{_inline_7_arg0_=Math.max(_inline_7_arg1_*_inline_7_arg0_,_inline_7_arg0_)}","args":[{"name":"_inline_7_arg0_","lvalue":true,"rvalue":true,"count":3},{"name":"_inline_7_arg1_","lvalue":false,"rvalue":true,"count":1}],"thisVars":[],"localVars":[]},"post":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"debug":false,"funcName":"leakyReluCwise","blockSize":64});
 
 function leakyRelu (x, alpha) {
   alpha = alpha || 1e-3;
@@ -23295,7 +23461,7 @@ function leakyRelu (x, alpha) {
   return s;
 }
 
-var doTanh = require('cwise/lib/wrapper')({"args":["array"],"pre":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"body":{"body":"{_inline_52_arg0_=(Math.exp(2*_inline_52_arg0_)-1)/(Math.exp(2*_inline_52_arg0_)+1)}","args":[{"name":"_inline_52_arg0_","lvalue":true,"rvalue":true,"count":3}],"thisVars":[],"localVars":[]},"post":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"debug":false,"funcName":"tanhCwise","blockSize":64});
+var doTanh = require('cwise/lib/wrapper')({"args":["array"],"pre":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"body":{"body":"{_inline_10_arg0_=(Math.exp(2*_inline_10_arg0_)-1)/(Math.exp(2*_inline_10_arg0_)+1)}","args":[{"name":"_inline_10_arg0_","lvalue":true,"rvalue":true,"count":3}],"thisVars":[],"localVars":[]},"post":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"debug":false,"funcName":"tanhCwise","blockSize":64});
 
 /**
  * Return hyperbolic tangent of the input array, element-wise.
@@ -23657,6 +23823,97 @@ function rot90 (m, k, axes) {
   }
 }
 
+/**
+ * Apply an aggregate operation across an axis for all of the array 
+ * 
+ * @param {Array|NdArray} arr array to apply to
+ * @param {(vectorInput: NdArray) => number} vectorFunc a function that takes in a vector and returns a number
+ * @param {{axis: number|undefined, keepdims: boolean}?} optional takes in which axis you are applyOverAxising over
+ * and keepdims=true will put 1 for the axis dimension instead of removing it
+ *
+ * axis refers to the dimension you applyOverAxis over. So axis:1 will apply the vectorFunc to the vector rows in a matrix
+ * if axis=-1 this just means to applyOverAxis over the last axis, -2 second to last and so on
+ * 
+ * @example here I apply nj.sum across the rows of a matrix
+ * ```js
+ * > var A = nj.array([[1,2],
+ *                       [3,4]]);
+ * > nj.applyOverAxis(A, nj.sum, {axis: 1})
+ * array([3, 7])
+ * >
+ * > nj.applyOverAxis(A, nj.sum, {axis: 1, keepdims: true})
+ * array([[3],
+ *        [7]]);
+ * ```
+ * 
+ * @throws error if axis is too large for the given arr
+ * @return {NdArray} An array of the results from the vectorFunc batched over the axis
+ */
+function applyOverAxis (arr, vectorFunc, { axis=undefined, keepdims=false } = {}) {
+  // by default, compute across the flat array
+  if(axis === undefined) return vectorFunc(arr);
+  // ie when the axis is negative refer to end axes
+  if(axis < 0) {
+    axis = arr.shape.length + axis; // axis is - so will be < arr.shape.length
+  }
+  // if the axis is negative then wrap to end
+  if(axis > arr.shape.length || axis < 0) throw new errors.ValueError('the axis exceeds max number of axes (shape.length)');
+
+  // 
+  // Now iterate over all vectors around the given axis and apply the vectorFunc to it
+  // 
+  var results = [];
+  var iterShape = arr.shape.filter((d, i) => i !== axis);
+  // all possible indices we need to iterate over around the axis
+  var p = nestedIteration(iterShape);
+  for(var i = 0; i < p.length; i++) {
+    // put the null back where the axis is
+    var sliceLocation = p[i];
+    sliceLocation.splice(axis, 0, null); 
+
+    // select the vector given location and apply the vectorOperation
+    var vector = arr.pick(...sliceLocation); // column at axis
+    var apply = vectorFunc(vector);
+
+    // accumulate results
+    results.push(apply);
+  }
+
+  // reshape back to original array, but with the reduced axis dimension 
+  var resultShape = [...arr.shape];
+  if(keepdims) {
+    resultShape[axis] = 1;
+  } else {
+    resultShape.splice(axis, 1);
+  }
+  return NdArray.new(results).reshape(resultShape);
+}
+
+/**
+ * Helper method to essentially dynamically generated nestex for loops
+ *
+ * for(var i = 0; i < shape[0]; i++) {
+ * 	for(var j = 0; j < shape[1]; j++) {
+ * 		... and so on
+ *  }
+ * }
+ * 
+ * @param {Array<number>} shape 
+ * @returns i,j,k... indices for a nested for loop based on shape
+ */
+function nestedIteration (shape) {
+  var result = [];
+  function _iterate(shapeIndex, temp=[]) {
+    if(temp.length === shape.length) return temp;
+    for(var i = 0; i < shape[shapeIndex]; i++) {
+      var nested = _iterate(shapeIndex+1, [...temp, i]);
+      if (nested) result.push(nested);
+    }
+  }
+  _iterate(0);
+  return result;
+}
+
 module.exports = {
   config: CONF,
   dtypes: DTYPES,
@@ -23667,6 +23924,13 @@ module.exports = {
   reshape: reshape,
   zeros: zeros,
   ones: ones,
+  full: full,
+  eye: eye,
+  tri: tri,
+  zerosLike: zerosLike,
+  onesLike: onesLike,
+  fullLike: fullLike,
+  randomLike: randomLike,
   empty: empty,
   flatten: flatten,
   flip: flip,
@@ -23699,6 +23963,8 @@ module.exports = {
   equal: equal,
   max: max,
   min: min,
+  argmax: argmax,
+  argmin: argmin,
   mod: mod,
   remainder: mod,
   concatenate: concatenate,
@@ -23722,6 +23988,7 @@ module.exports = {
   uint32: function (array) { return NdArray.new(array, 'uint32'); },
   float32: function (array) { return NdArray.new(array, 'float32'); },
   float64: function (array) { return NdArray.new(array, 'float64'); },
+  applyOverAxis: applyOverAxis,
   images: require('./images')
 };
 
@@ -24284,6 +24551,30 @@ NdArray.prototype.min = function () {
 };
 
 /**
+* Return the index of the maximum value of the array
+*
+* @returns {Array<number>}
+*/
+NdArray.prototype.argmax = function () {
+  if (this.selection.size === 0) {
+    return null;
+  }
+  return ops.argmax(this.selection);
+};
+
+/**
+* Return the index of the minimum value of the array
+*
+* @returns {Array<number>}
+*/
+NdArray.prototype.argmin = function () {
+  if (this.selection.size === 0) {
+    return null;
+  }
+  return ops.argmin(this.selection);
+};
+
+/**
 * Sum of array elements.
 *
 * @returns {number}
@@ -24404,6 +24695,13 @@ NdArray.prototype.toString = function () {
 };
 
 /**
+* Calls console.log(this.toString())
+*/
+NdArray.prototype.print = function () {
+  console.log(this.toString());
+};
+
+/**
 * Stringify the array to make it readable in the console, by a human.
 *
 * @returns {string}
@@ -24520,11 +24818,11 @@ NdArray.prototype.iteraxis = function (axis, cb) {
   }
 };
 
-var doConjMuleq = require('cwise/lib/wrapper')({"args":["array","array","array","array"],"pre":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"body":{"body":"{var _inline_55_c=_inline_55_arg2_,_inline_55_f=_inline_55_arg3_,_inline_55_i=_inline_55_arg0_,_inline_55_o=_inline_55_arg1_,_inline_55_t=_inline_55_i*(_inline_55_c+_inline_55_f);_inline_55_arg0_=_inline_55_t-_inline_55_f*(_inline_55_i+_inline_55_o),_inline_55_arg1_=_inline_55_t+_inline_55_c*(_inline_55_o-_inline_55_i)}","args":[{"name":"_inline_55_arg0_","lvalue":true,"rvalue":true,"count":2},{"name":"_inline_55_arg1_","lvalue":true,"rvalue":true,"count":2},{"name":"_inline_55_arg2_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_55_arg3_","lvalue":false,"rvalue":true,"count":1}],"thisVars":[],"localVars":["_inline_55_c","_inline_55_f","_inline_55_i","_inline_55_o","_inline_55_t"]},"post":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"debug":false,"funcName":"cwise","blockSize":64});
+var doConjMuleq = require('cwise/lib/wrapper')({"args":["array","array","array","array"],"pre":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"body":{"body":"{var _inline_13_c=_inline_13_arg2_,_inline_13_f=_inline_13_arg3_,_inline_13_i=_inline_13_arg0_,_inline_13_o=_inline_13_arg1_,_inline_13_t=_inline_13_i*(_inline_13_c+_inline_13_f);_inline_13_arg0_=_inline_13_t-_inline_13_f*(_inline_13_i+_inline_13_o),_inline_13_arg1_=_inline_13_t+_inline_13_c*(_inline_13_o-_inline_13_i)}","args":[{"name":"_inline_13_arg0_","lvalue":true,"rvalue":true,"count":2},{"name":"_inline_13_arg1_","lvalue":true,"rvalue":true,"count":2},{"name":"_inline_13_arg2_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_13_arg3_","lvalue":false,"rvalue":true,"count":1}],"thisVars":[],"localVars":["_inline_13_c","_inline_13_f","_inline_13_i","_inline_13_o","_inline_13_t"]},"post":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"debug":false,"funcName":"cwise","blockSize":64});
 
-var doConvolve3x3 = require('cwise/lib/wrapper')({"args":["array","array","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar",{"offset":[-1,-1],"array":1},{"offset":[-1,0],"array":1},{"offset":[-1,1],"array":1},{"offset":[0,-1],"array":1},{"offset":[0,1],"array":1},{"offset":[1,-1],"array":1},{"offset":[1,0],"array":1},{"offset":[1,1],"array":1}],"pre":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"body":{"body":"{_inline_58_arg0_=_inline_58_arg11_*_inline_58_arg10_+_inline_58_arg12_*_inline_58_arg9_+_inline_58_arg13_*_inline_58_arg8_+_inline_58_arg14_*_inline_58_arg7_+_inline_58_arg1_*_inline_58_arg6_+_inline_58_arg15_*_inline_58_arg5_+_inline_58_arg16_*_inline_58_arg4_+_inline_58_arg17_*_inline_58_arg3_+_inline_58_arg18_*_inline_58_arg2_}","args":[{"name":"_inline_58_arg0_","lvalue":true,"rvalue":false,"count":1},{"name":"_inline_58_arg1_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_58_arg2_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_58_arg3_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_58_arg4_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_58_arg5_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_58_arg6_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_58_arg7_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_58_arg8_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_58_arg9_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_58_arg10_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_58_arg11_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_58_arg12_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_58_arg13_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_58_arg14_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_58_arg15_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_58_arg16_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_58_arg17_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_58_arg18_","lvalue":false,"rvalue":true,"count":1}],"thisVars":[],"localVars":[]},"post":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"debug":false,"funcName":"cwise","blockSize":64});
+var doConvolve3x3 = require('cwise/lib/wrapper')({"args":["array","array","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar",{"offset":[-1,-1],"array":1},{"offset":[-1,0],"array":1},{"offset":[-1,1],"array":1},{"offset":[0,-1],"array":1},{"offset":[0,1],"array":1},{"offset":[1,-1],"array":1},{"offset":[1,0],"array":1},{"offset":[1,1],"array":1}],"pre":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"body":{"body":"{_inline_16_arg0_=_inline_16_arg11_*_inline_16_arg10_+_inline_16_arg12_*_inline_16_arg9_+_inline_16_arg13_*_inline_16_arg8_+_inline_16_arg14_*_inline_16_arg7_+_inline_16_arg1_*_inline_16_arg6_+_inline_16_arg15_*_inline_16_arg5_+_inline_16_arg16_*_inline_16_arg4_+_inline_16_arg17_*_inline_16_arg3_+_inline_16_arg18_*_inline_16_arg2_}","args":[{"name":"_inline_16_arg0_","lvalue":true,"rvalue":false,"count":1},{"name":"_inline_16_arg1_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_16_arg2_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_16_arg3_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_16_arg4_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_16_arg5_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_16_arg6_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_16_arg7_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_16_arg8_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_16_arg9_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_16_arg10_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_16_arg11_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_16_arg12_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_16_arg13_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_16_arg14_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_16_arg15_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_16_arg16_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_16_arg17_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_16_arg18_","lvalue":false,"rvalue":true,"count":1}],"thisVars":[],"localVars":[]},"post":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"debug":false,"funcName":"cwise","blockSize":64});
 
-var doConvolve5x5 = require('cwise/lib/wrapper')({"args":["index","array","array","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar",{"offset":[-2,-2],"array":1},{"offset":[-2,-1],"array":1},{"offset":[-2,0],"array":1},{"offset":[-2,1],"array":1},{"offset":[-2,2],"array":1},{"offset":[-1,-2],"array":1},{"offset":[-1,-1],"array":1},{"offset":[-1,0],"array":1},{"offset":[-1,1],"array":1},{"offset":[-1,2],"array":1},{"offset":[0,-2],"array":1},{"offset":[0,-1],"array":1},{"offset":[0,1],"array":1},{"offset":[0,2],"array":1},{"offset":[1,-2],"array":1},{"offset":[1,-1],"array":1},{"offset":[1,0],"array":1},{"offset":[1,1],"array":1},{"offset":[1,2],"array":1},{"offset":[2,-2],"array":1},{"offset":[2,-1],"array":1},{"offset":[2,0],"array":1},{"offset":[2,1],"array":1},{"offset":[2,2],"array":1}],"pre":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"body":{"body":"{_inline_61_arg1_=_inline_61_arg0_[0]<2||_inline_61_arg0_[1]<2?0:_inline_61_arg28_*_inline_61_arg27_+_inline_61_arg29_*_inline_61_arg26_+_inline_61_arg30_*_inline_61_arg25_+_inline_61_arg31_*_inline_61_arg24_+_inline_61_arg32_*_inline_61_arg23_+_inline_61_arg33_*_inline_61_arg22_+_inline_61_arg34_*_inline_61_arg21_+_inline_61_arg35_*_inline_61_arg20_+_inline_61_arg36_*_inline_61_arg19_+_inline_61_arg37_*_inline_61_arg18_+_inline_61_arg38_*_inline_61_arg17_+_inline_61_arg39_*_inline_61_arg16_+_inline_61_arg2_*_inline_61_arg15_+_inline_61_arg40_*_inline_61_arg14_+_inline_61_arg41_*_inline_61_arg13_+_inline_61_arg42_*_inline_61_arg12_+_inline_61_arg43_*_inline_61_arg11_+_inline_61_arg44_*_inline_61_arg10_+_inline_61_arg45_*_inline_61_arg9_+_inline_61_arg46_*_inline_61_arg8_+_inline_61_arg47_*_inline_61_arg7_+_inline_61_arg48_*_inline_61_arg6_+_inline_61_arg49_*_inline_61_arg5_+_inline_61_arg50_*_inline_61_arg4_+_inline_61_arg51_*_inline_61_arg3_}","args":[{"name":"_inline_61_arg0_","lvalue":false,"rvalue":true,"count":2},{"name":"_inline_61_arg1_","lvalue":true,"rvalue":false,"count":1},{"name":"_inline_61_arg2_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg3_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg4_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg5_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg6_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg7_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg8_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg9_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg10_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg11_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg12_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg13_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg14_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg15_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg16_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg17_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg18_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg19_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg20_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg21_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg22_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg23_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg24_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg25_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg26_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg27_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg28_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg29_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg30_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg31_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg32_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg33_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg34_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg35_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg36_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg37_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg38_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg39_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg40_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg41_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg42_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg43_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg44_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg45_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg46_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg47_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg48_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg49_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg50_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_61_arg51_","lvalue":false,"rvalue":true,"count":1}],"thisVars":[],"localVars":[]},"post":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"debug":false,"funcName":"cwise","blockSize":64});
+var doConvolve5x5 = require('cwise/lib/wrapper')({"args":["index","array","array","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar","scalar",{"offset":[-2,-2],"array":1},{"offset":[-2,-1],"array":1},{"offset":[-2,0],"array":1},{"offset":[-2,1],"array":1},{"offset":[-2,2],"array":1},{"offset":[-1,-2],"array":1},{"offset":[-1,-1],"array":1},{"offset":[-1,0],"array":1},{"offset":[-1,1],"array":1},{"offset":[-1,2],"array":1},{"offset":[0,-2],"array":1},{"offset":[0,-1],"array":1},{"offset":[0,1],"array":1},{"offset":[0,2],"array":1},{"offset":[1,-2],"array":1},{"offset":[1,-1],"array":1},{"offset":[1,0],"array":1},{"offset":[1,1],"array":1},{"offset":[1,2],"array":1},{"offset":[2,-2],"array":1},{"offset":[2,-1],"array":1},{"offset":[2,0],"array":1},{"offset":[2,1],"array":1},{"offset":[2,2],"array":1}],"pre":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"body":{"body":"{_inline_19_arg1_=_inline_19_arg0_[0]<2||_inline_19_arg0_[1]<2?0:_inline_19_arg28_*_inline_19_arg27_+_inline_19_arg29_*_inline_19_arg26_+_inline_19_arg30_*_inline_19_arg25_+_inline_19_arg31_*_inline_19_arg24_+_inline_19_arg32_*_inline_19_arg23_+_inline_19_arg33_*_inline_19_arg22_+_inline_19_arg34_*_inline_19_arg21_+_inline_19_arg35_*_inline_19_arg20_+_inline_19_arg36_*_inline_19_arg19_+_inline_19_arg37_*_inline_19_arg18_+_inline_19_arg38_*_inline_19_arg17_+_inline_19_arg39_*_inline_19_arg16_+_inline_19_arg2_*_inline_19_arg15_+_inline_19_arg40_*_inline_19_arg14_+_inline_19_arg41_*_inline_19_arg13_+_inline_19_arg42_*_inline_19_arg12_+_inline_19_arg43_*_inline_19_arg11_+_inline_19_arg44_*_inline_19_arg10_+_inline_19_arg45_*_inline_19_arg9_+_inline_19_arg46_*_inline_19_arg8_+_inline_19_arg47_*_inline_19_arg7_+_inline_19_arg48_*_inline_19_arg6_+_inline_19_arg49_*_inline_19_arg5_+_inline_19_arg50_*_inline_19_arg4_+_inline_19_arg51_*_inline_19_arg3_}","args":[{"name":"_inline_19_arg0_","lvalue":false,"rvalue":true,"count":2},{"name":"_inline_19_arg1_","lvalue":true,"rvalue":false,"count":1},{"name":"_inline_19_arg2_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg3_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg4_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg5_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg6_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg7_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg8_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg9_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg10_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg11_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg12_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg13_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg14_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg15_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg16_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg17_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg18_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg19_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg20_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg21_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg22_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg23_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg24_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg25_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg26_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg27_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg28_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg29_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg30_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg31_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg32_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg33_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg34_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg35_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg36_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg37_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg38_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg39_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg40_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg41_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg42_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg43_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg44_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg45_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg46_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg47_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg48_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg49_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg50_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_19_arg51_","lvalue":false,"rvalue":true,"count":1}],"thisVars":[],"localVars":[]},"post":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"debug":false,"funcName":"cwise","blockSize":64});
 
 /**
 * Returns the discrete, linear convolution of the array using the given filter.
@@ -24779,7 +25077,7 @@ function initNativeArray (shape, i) {
   return result;
 }
 
-var doUnpack = require('cwise/lib/wrapper')({"args":["array","scalar","index"],"pre":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"body":{"body":"{var _inline_64_a,_inline_64_e=_inline_64_arg1_;for(_inline_64_a=0;_inline_64_a<_inline_64_arg2_.length-1;++_inline_64_a)_inline_64_e=_inline_64_e[_inline_64_arg2_[_inline_64_a]];_inline_64_e[_inline_64_arg2_[_inline_64_arg2_.length-1]]=_inline_64_arg0_}","args":[{"name":"_inline_64_arg0_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_64_arg1_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_64_arg2_","lvalue":false,"rvalue":true,"count":4}],"thisVars":[],"localVars":["_inline_64_a","_inline_64_e"]},"post":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"debug":false,"funcName":"unpackCwise","blockSize":64});
+var doUnpack = require('cwise/lib/wrapper')({"args":["array","scalar","index"],"pre":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"body":{"body":"{var _inline_22_a,_inline_22_e=_inline_22_arg1_;for(_inline_22_a=0;_inline_22_a<_inline_22_arg2_.length-1;++_inline_22_a)_inline_22_e=_inline_22_e[_inline_22_arg2_[_inline_22_a]];_inline_22_e[_inline_22_arg2_[_inline_22_arg2_.length-1]]=_inline_22_arg0_}","args":[{"name":"_inline_22_arg0_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_22_arg1_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_22_arg2_","lvalue":false,"rvalue":true,"count":4}],"thisVars":[],"localVars":["_inline_22_a","_inline_22_e"]},"post":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"debug":false,"funcName":"unpackCwise","blockSize":64});
 
 function unpackArray (arr) {
   var result = initNativeArray(arr.shape, 0);

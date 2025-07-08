@@ -53,6 +53,7 @@
     ]
   },
   "scripts": {
+    "build": "grunt build",
     "test": "grunt test",
     "preversion": "grunt test && git ci dist -m 'bump version' --allow-empty ",
     "postversion": "npm publish && grunt doc"
