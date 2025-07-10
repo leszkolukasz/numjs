@@ -1192,9 +1192,36 @@ var doUnpack = cwise({
   }
 });
 
+const posToIndices = (pos, strides) => {
+  const indices = [];
+  for (let i = 0; i < strides.length; i++) {
+    const stride = strides[i];
+    indices.push(Math.floor(pos / stride));
+    pos %= stride;
+  }
+  return indices;
+};
+
+const setNativeArrayValue = (arr, indices, value) => {
+  let v = arr;
+  for (let i = 0; i < indices.length - 1; i++) {
+    v = v[indices[i]];
+  }
+  v[indices[indices.length - 1]] = value;
+};
+
 function unpackArray (arr) {
   var result = initNativeArray(arr.shape, 0);
-  doUnpack(arr, result);
+  // doUnpack(arr, result); this fails on react native with some ReferenceError
+
+  const totalSize = arr.shape.reduce((acc, dim) => acc * dim, 1);
+  for (let i = 0; i < totalSize; i++) {
+    const indices = posToIndices(i, arr.stride);
+    const val = arr.get(...indices);
+    setNativeArrayValue(result, indices, val);
+  }
+
+
   return result;
 }
 

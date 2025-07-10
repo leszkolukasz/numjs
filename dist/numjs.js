@@ -22190,7 +22190,7 @@ module.exports = function rgb2gray (img) {
 var NdArray = require('../ndarray');
 var rgb2gray = require('./rgb2gray');
 
-var doIntegrate = require('cwise/lib/wrapper')({"args":["array","array","index",{"offset":[-1,-1],"array":0},{"offset":[-1,0],"array":0},{"offset":[0,-1],"array":0}],"pre":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"body":{"body":"{_inline_28_arg0_=0!==_inline_28_arg2_[0]&&0!==_inline_28_arg2_[1]?_inline_28_arg1_+_inline_28_arg4_+_inline_28_arg5_-_inline_28_arg3_:0===_inline_28_arg2_[0]&&0===_inline_28_arg2_[1]?_inline_28_arg1_:0===_inline_28_arg2_[0]?_inline_28_arg1_+_inline_28_arg5_:_inline_28_arg1_+_inline_28_arg4_}","args":[{"name":"_inline_28_arg0_","lvalue":true,"rvalue":false,"count":1},{"name":"_inline_28_arg1_","lvalue":false,"rvalue":true,"count":4},{"name":"_inline_28_arg2_","lvalue":false,"rvalue":true,"count":5},{"name":"_inline_28_arg3_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_28_arg4_","lvalue":false,"rvalue":true,"count":2},{"name":"_inline_28_arg5_","lvalue":false,"rvalue":true,"count":2}],"thisVars":[],"localVars":[]},"post":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"debug":false,"funcName":"doIntegrateBody","blockSize":64});
+var doIntegrate = require('cwise/lib/wrapper')({"args":["array","array","index",{"offset":[-1,-1],"array":0},{"offset":[-1,0],"array":0},{"offset":[0,-1],"array":0}],"pre":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"body":{"body":"{_inline_25_arg0_=0!==_inline_25_arg2_[0]&&0!==_inline_25_arg2_[1]?_inline_25_arg1_+_inline_25_arg4_+_inline_25_arg5_-_inline_25_arg3_:0===_inline_25_arg2_[0]&&0===_inline_25_arg2_[1]?_inline_25_arg1_:0===_inline_25_arg2_[0]?_inline_25_arg1_+_inline_25_arg5_:_inline_25_arg1_+_inline_25_arg4_}","args":[{"name":"_inline_25_arg0_","lvalue":true,"rvalue":false,"count":1},{"name":"_inline_25_arg1_","lvalue":false,"rvalue":true,"count":4},{"name":"_inline_25_arg2_","lvalue":false,"rvalue":true,"count":5},{"name":"_inline_25_arg3_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_25_arg4_","lvalue":false,"rvalue":true,"count":2},{"name":"_inline_25_arg5_","lvalue":false,"rvalue":true,"count":2}],"thisVars":[],"localVars":[]},"post":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"debug":false,"funcName":"doIntegrateBody","blockSize":64});
 
 /**
  * Compute Sum Area Table, also known as the integral of the image
@@ -22329,7 +22329,7 @@ module.exports = function computeSobel (img) {
 var NdArray = require('../ndarray');
 var rgb2gray = require('./rgb2gray');
 
-var doIntegrate = require('cwise/lib/wrapper')({"args":["array","array","index",{"offset":[-1,-1],"array":0},{"offset":[-1,0],"array":0},{"offset":[0,-1],"array":0}],"pre":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"body":{"body":"{_inline_25_arg0_=0!==_inline_25_arg2_[0]&&0!==_inline_25_arg2_[1]?_inline_25_arg1_*_inline_25_arg1_+_inline_25_arg4_+_inline_25_arg5_-_inline_25_arg3_:0===_inline_25_arg2_[0]&&0===_inline_25_arg2_[1]?_inline_25_arg1_*_inline_25_arg1_:0===_inline_25_arg2_[0]?_inline_25_arg1_*_inline_25_arg1_+_inline_25_arg5_:_inline_25_arg1_*_inline_25_arg1_+_inline_25_arg4_}","args":[{"name":"_inline_25_arg0_","lvalue":true,"rvalue":false,"count":1},{"name":"_inline_25_arg1_","lvalue":false,"rvalue":true,"count":8},{"name":"_inline_25_arg2_","lvalue":false,"rvalue":true,"count":5},{"name":"_inline_25_arg3_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_25_arg4_","lvalue":false,"rvalue":true,"count":2},{"name":"_inline_25_arg5_","lvalue":false,"rvalue":true,"count":2}],"thisVars":[],"localVars":[]},"post":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"debug":false,"funcName":"doIntegrateBody","blockSize":64});
+var doIntegrate = require('cwise/lib/wrapper')({"args":["array","array","index",{"offset":[-1,-1],"array":0},{"offset":[-1,0],"array":0},{"offset":[0,-1],"array":0}],"pre":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"body":{"body":"{_inline_28_arg0_=0!==_inline_28_arg2_[0]&&0!==_inline_28_arg2_[1]?_inline_28_arg1_*_inline_28_arg1_+_inline_28_arg4_+_inline_28_arg5_-_inline_28_arg3_:0===_inline_28_arg2_[0]&&0===_inline_28_arg2_[1]?_inline_28_arg1_*_inline_28_arg1_:0===_inline_28_arg2_[0]?_inline_28_arg1_*_inline_28_arg1_+_inline_28_arg5_:_inline_28_arg1_*_inline_28_arg1_+_inline_28_arg4_}","args":[{"name":"_inline_28_arg0_","lvalue":true,"rvalue":false,"count":1},{"name":"_inline_28_arg1_","lvalue":false,"rvalue":true,"count":8},{"name":"_inline_28_arg2_","lvalue":false,"rvalue":true,"count":5},{"name":"_inline_28_arg3_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_28_arg4_","lvalue":false,"rvalue":true,"count":2},{"name":"_inline_28_arg5_","lvalue":false,"rvalue":true,"count":2}],"thisVars":[],"localVars":[]},"post":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"debug":false,"funcName":"doIntegrateBody","blockSize":64});
 
 /**
  * Compute Squared Sum Area Table, also known as the integral of the squared image
@@ -24661,9 +24661,36 @@ function initNativeArray (shape, i) {
 
 var doUnpack = require('cwise/lib/wrapper')({"args":["array","scalar","index"],"pre":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"body":{"body":"{var _inline_22_a,_inline_22_e=_inline_22_arg1_;for(_inline_22_a=0;_inline_22_a<_inline_22_arg2_.length-1;++_inline_22_a)_inline_22_e=_inline_22_e[_inline_22_arg2_[_inline_22_a]];_inline_22_e[_inline_22_arg2_[_inline_22_arg2_.length-1]]=_inline_22_arg0_}","args":[{"name":"_inline_22_arg0_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_22_arg1_","lvalue":false,"rvalue":true,"count":1},{"name":"_inline_22_arg2_","lvalue":false,"rvalue":true,"count":4}],"thisVars":[],"localVars":["_inline_22_a","_inline_22_e"]},"post":{"body":"{}","args":[],"thisVars":[],"localVars":[]},"debug":false,"funcName":"unpackCwise","blockSize":64});
 
+const posToIndices = (pos, strides) => {
+  const indices = [];
+  for (let i = 0; i < strides.length; i++) {
+    const stride = strides[i];
+    indices.push(Math.floor(pos / stride));
+    pos %= stride;
+  }
+  return indices;
+};
+
+const setNativeArrayValue = (arr, indices, value) => {
+  let v = arr;
+  for (let i = 0; i < indices.length - 1; i++) {
+    v = v[indices[i]];
+  }
+  v[indices[indices.length - 1]] = value;
+};
+
 function unpackArray (arr) {
   var result = initNativeArray(arr.shape, 0);
-  doUnpack(arr, result);
+  // doUnpack(arr, result); this fails on react native with some ReferenceError
+
+  const totalSize = arr.shape.reduce((acc, dim) => acc * dim, 1);
+  for (let i = 0; i < totalSize; i++) {
+    const indices = posToIndices(i, arr.stride);
+    const val = arr.get(...indices);
+    setNativeArrayValue(result, indices, val);
+  }
+
+
   return result;
 }
 
